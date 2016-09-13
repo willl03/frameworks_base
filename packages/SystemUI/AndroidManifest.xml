@@ -366,7 +366,7 @@
             android:name=".net.NetworkOverLimitActivity"
             android:exported="true"
             android:permission="android.permission.MANAGE_NETWORK_POLICY"
-            android:theme="@android:style/Theme.DeviceDefault.Light.Panel"
+            android:theme="@style/Theme.SystemUI.Network.Panel"
             android:finishOnCloseSystemDialogs="true"
             android:launchMode="singleTop"
             android:taskAffinity="com.android.systemui.net"
