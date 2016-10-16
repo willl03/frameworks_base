@@ -310,8 +310,9 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         int contentDescription;
         boolean visible = mUserSetupComplete;
         if (mLeftIsVoiceAssist) {
-            drawableId = R.drawable.ic_mic_26dp;
-            contentDescription = R.string.accessibility_voice_assist_button;
+            visible &= isPhoneVisible();
+            drawableId = R.drawable.ic_phone_24dp;
+            contentDescription = R.string.accessibility_phone_button;
         } else {
             visible &= isPhoneVisible();
             drawableId = R.drawable.ic_phone_24dp;
@@ -490,25 +491,9 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
     public void launchLeftAffordance() {
         if (mLeftIsVoiceAssist) {
-            launchVoiceAssist();
+            launchPhone();
         } else {
             launchPhone();
-        }
-    }
-
-    private void launchVoiceAssist() {
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                mAssistManager.launchVoiceAssistFromKeyguard();
-                mActivityStarter.preventNextAnimation();
-            }
-        };
-        if (mPhoneStatusBar.isKeyguardCurrentlySecure()) {
-            AsyncTask.execute(runnable);
-        } else {
-            mPhoneStatusBar.executeRunnableDismissingKeyguard(runnable, null /* cancelAction */,
-                    false /* dismissShade */, false /* afterKeyguardGone */, true /* deferred */);
         }
     }
 
