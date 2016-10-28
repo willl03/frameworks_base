@@ -2523,6 +2523,10 @@
     <!-- True if the device supports system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">false</bool>
 
+    <!-- Timeout in MS for how long you have to long-press the back key to
+         kill the foreground app. Twice the stock longpress timeout. -->
+    <integer name="config_backKillTimeout">900</integer>
+
     <!-- Package name for the device provisioning package. -->
     <string name="config_deviceProvisioningPackage"></string>
 
