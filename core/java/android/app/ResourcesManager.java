@@ -1004,11 +1004,7 @@ public class ResourcesManager {
                 if (r != null) {
                     final ResourcesKey key = updatedResourceKeys.get(r.getImpl());
                     if (key != null) {
-                        final ResourcesImpl impl = findOrCreateResourcesImplForKeyLocked(key);
-                        if (impl == null) {
-                            throw new Resources.NotFoundException("failed to load " + libAsset);
-                        }
-                        r.setImpl(impl);
+                        r.setImpl(findOrCreateResourcesImplForKeyLocked(key));
                     }
                 }
             }
