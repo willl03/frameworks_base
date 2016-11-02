@@ -470,7 +470,7 @@ public class TileAdapter extends RecyclerView.Adapter<Holder> implements TileSta
 
         private TileItemDecoration(Context context) {
             TypedArray ta =
-                    context.obtainStyledAttributes(new int[]{android.R.color.qs_edit_item_decoration_bg});
+                    context.obtainStyledAttributes(new int[]{R.color.qs_edit_item_decoration_bg});
             mDrawable = new ColorDrawable(ta.getColor(0, 0));
             ta.recycle();
         }
